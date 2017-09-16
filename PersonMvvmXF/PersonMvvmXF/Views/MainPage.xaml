@@ -9,44 +9,56 @@
     <ContentPage.Content>
         <StackLayout Padding="10">
 
-            <ListView  ItemsSource="{Binding Persons}">
+            <ListView  ItemsSource="{Binding Persons}" RowHeight="140">
                 <ListView.ItemTemplate >
-                    <DataTemplate >
-                        <ViewCell>
+                    <DataTemplate>
+                        <ViewCell >
 
-                            <StackLayout Orientation="Horizontal" Padding="10" >
+                            <StackLayout 
+                                VerticalOptions="FillAndExpand" 
+                                HorizontalOptions="FillAndExpand"
+                                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                                AbsoluteLayout.LayoutFlags="All"
+                                BackgroundColor="#CCCCCC" >
 
-                                <Image Source="{Binding Photo}"/>
+                                <StackLayout  
+                                    BackgroundColor="White" 
+                                    Orientation="Horizontal"
+                                    VerticalOptions="FillAndExpand"
+                                    Padding="5">
 
-                                <StackLayout>
+                                    <Image Source="{Binding Photo}" HeightRequest="130" WidthRequest="130"/>
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Name: " />
-                                        <Label Text="{Binding Name}" />
-                                    </StackLayout>
+                                    <StackLayout>
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Surname: "/>
-                                        <Label Text="{Binding Surname}" />
-                                    </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Name: "/>
+                                            <Label Text="{Binding Name}"/>
+                                        </StackLayout>
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Gender: " />
-                                        <Label Text="{Binding Gender}" />
-                                    </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Surname: "/>
+                                            <Label Text="{Binding Surname}" />
+                                        </StackLayout>
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Age: " />
-                                        <Label Text="{Binding Age}" />
-                                    </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Gender: " />
+                                            <Label Text="{Binding Gender}" />
+                                        </StackLayout>
 
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Region: "/>
-                                        <Label Text="{Binding Region}"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Age: " />
+                                            <Label Text="{Binding Age}" />
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Region: "/>
+                                            <Label Text="{Binding Region}"/>
+                                        </StackLayout>
+
                                     </StackLayout>
 
                                 </StackLayout>
-
                             </StackLayout>
 
                         </ViewCell>
