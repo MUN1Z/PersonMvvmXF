@@ -1,40 +1,38 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using PersonMvvmXF.Entities;
+using PersonMvvmXF.Services;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace PersonMvvmXF.ViewModels
 {
-    public class MainPageViewModel : BindableBase, INavigationAware
+    public class MainPageViewModel : BaseViewModel
     {
-        private string _title;
-        public string Title
+
+        private ObservableCollection<Person> _persons;
+
+        public ObservableCollection<Person> Persons
         {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
+            get { return _persons; }
+            set { SetProperty(ref _persons, value); }
         }
 
-        public MainPageViewModel()
+        public MainPageViewModel(INavigationService navigationService) : base("PersonMvvmXF", navigationService)
         {
-
+            GetPerson();
         }
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
+        public async void GetPerson()
         {
+            List<Person> persons = new List<Person>();
 
+            for (int i = 0; i < 10; i++)
+            {
+                persons.Add(await ServiceGenerator.GetService().GetPerson());
+            }
+
+            Persons = new ObservableCollection<Person>(persons); 
         }
 
-        public void OnNavigatingTo(NavigationParameters parameters)
-        {
-
-        }
-
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
-        }
     }
 }

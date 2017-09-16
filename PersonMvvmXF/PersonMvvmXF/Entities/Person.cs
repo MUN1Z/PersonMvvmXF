@@ -1,16 +1,56 @@
-﻿namespace PersonMvvmXF.Entities
+﻿using System;
+using Newtonsoft.Json;
+using Prism.Mvvm;
+
+namespace PersonMvvmXF.Entities
 {
-    public class Person
+    public class Person: BindableBase
     {
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Gender { get; set; }
-        public string Region { get; set; }
-        public int Age { get; set; }
-        public string Title { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string Photo { get; set; }
+        private string _name;
+
+        [JsonProperty(PropertyName = "name")]
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        private string _surname;
+
+        [JsonProperty(PropertyName = "surname")]
+        public string Surname
+        {
+            get { return _surname; }
+            set { _surname = value; }
+        }
+
+        private string _gender;
+
+        [JsonProperty(PropertyName = "gender")]
+        public string Gender
+        {
+            get { return _gender; }
+            set { _gender = value; }
+        }
+
+        private string _region;
+
+        [JsonProperty(PropertyName = "region")]
+        public string Region
+        {
+            get { return _region; }
+            set { _region = value; }
+        }
+        
+        public int Age
+        {
+            get { return new Random().Next(20, 30); }
+        }
+
+        public string Photo
+        {
+            get {return $"https://uinames.com/api/photos/{Gender}/{new Random().Next(1, 15)}.jpg"; }
+        }
+
     }
 }

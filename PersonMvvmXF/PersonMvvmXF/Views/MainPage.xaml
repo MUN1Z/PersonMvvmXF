@@ -4,8 +4,57 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PersonMvvmXF.Views.MainPage"
-             Title="MainPage">
-  <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-    <Label Text="{Binding Title}" />
-  </StackLayout>
+             Title="{Binding Title}">
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+
+            <ListView  ItemsSource="{Binding Persons}">
+                <ListView.ItemTemplate >
+                    <DataTemplate >
+                        <ViewCell>
+
+                            <StackLayout Orientation="Horizontal" Padding="10" >
+
+                                <Image Source="{Binding Photo}"/>
+
+                                <StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name: " />
+                                        <Label Text="{Binding Name}" />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Surname: "/>
+                                        <Label Text="{Binding Surname}" />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Gender: " />
+                                        <Label Text="{Binding Gender}" />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Age: " />
+                                        <Label Text="{Binding Age}" />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Region: "/>
+                                        <Label Text="{Binding Region}"/>
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+    
 </ContentPage>
