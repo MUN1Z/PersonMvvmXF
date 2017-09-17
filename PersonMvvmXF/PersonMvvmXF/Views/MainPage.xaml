@@ -17,9 +17,8 @@
                             <StackLayout 
                                 VerticalOptions="FillAndExpand" 
                                 HorizontalOptions="FillAndExpand"
-                                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                                 AbsoluteLayout.LayoutFlags="All"
-                                BackgroundColor="#CCCCCC" >
+                                BackgroundColor="#CCCCCC">
 
                                 <StackLayout  
                                     BackgroundColor="White" 
@@ -27,35 +26,16 @@
                                     VerticalOptions="FillAndExpand"
                                     Padding="5">
 
-                                    <Image Source="{Binding Photo}" HeightRequest="130" WidthRequest="130"/>
+                                    <Image Source="{Binding Photo}" 
+                                           HeightRequest="130" 
+                                           WidthRequest="130"/>
 
                                     <StackLayout>
-
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Name: "/>
-                                            <Label Text="{Binding Name}"/>
-                                        </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Surname: "/>
-                                            <Label Text="{Binding Surname}" />
-                                        </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Gender: " />
-                                            <Label Text="{Binding Gender}" />
-                                        </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Age: " />
-                                            <Label Text="{Binding Age}" />
-                                        </StackLayout>
-
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Region: "/>
-                                            <Label Text="{Binding Region}"/>
-                                        </StackLayout>
-
+                                        <Label Text="{Binding Name, StringFormat='Name: {0}'}"/>
+                                        <Label Text="{Binding Surname, StringFormat='Surname: {0}'}"/>
+                                        <Label Text="{Binding Gender, StringFormat='Gender: {0}'}"/>
+                                        <Label Text="{Binding Age, StringFormat='Age: {0}'}"/>
+                                        <Label Text="{Binding Region, StringFormat='Region: {0}'}"/>
                                     </StackLayout>
 
                                 </StackLayout>
