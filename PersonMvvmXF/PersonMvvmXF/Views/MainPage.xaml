@@ -17,7 +17,6 @@
                             <StackLayout 
                                 VerticalOptions="FillAndExpand" 
                                 HorizontalOptions="FillAndExpand"
-                                AbsoluteLayout.LayoutFlags="All"
                                 BackgroundColor="#CCCCCC">
 
                                 <StackLayout  

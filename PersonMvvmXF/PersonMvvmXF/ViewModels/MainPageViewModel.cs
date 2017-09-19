@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using PersonMvvmXF.Data;
 using PersonMvvmXF.Entities;
 using PersonMvvmXF.Services;
 using Prism.Navigation;
@@ -8,7 +10,7 @@ namespace PersonMvvmXF.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-
+        private readonly Repository<Person> _repositoryPerson;
         private ObservableCollection<Person> _persons;
 
         public ObservableCollection<Person> Persons
@@ -19,19 +21,27 @@ namespace PersonMvvmXF.ViewModels
 
         public MainPageViewModel(INavigationService navigationService) : base("PersonMvvmXF", navigationService)
         {
+            _repositoryPerson = new Repository<Person>();
             GetPerson();
         }
 
         public async void GetPerson()
         {
-            List<Person> persons = new List<Person>();
+            _repositoryPerson.DeleteAll();
 
             for (int i = 0; i < 10; i++)
             {
-                persons.Add(await ServiceGenerator.GetService().GetPerson());
+                _repositoryPerson.Persist(await ServiceGenerator.GetService().GetPerson());
             }
 
-            Persons = new ObservableCollection<Person>(persons); 
+            Persons = new ObservableCollection<Person>(_repositoryPerson.GetAll());
+
+            var person = _repositoryPerson.GetById(Persons.FirstOrDefault().Id);
+
+            _repositoryPerson.Delete(Persons.LastOrDefault());
+
+            Persons = new ObservableCollection<Person>(_repositoryPerson.GetAll());
+            
         }
 
     }
