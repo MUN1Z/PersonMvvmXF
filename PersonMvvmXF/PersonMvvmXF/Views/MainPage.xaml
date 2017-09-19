@@ -5,7 +5,11 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="PersonMvvmXF.Views.MainPage"
              Title="{Binding Title}">
-
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddCommand}" Text="Add"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout Padding="10">
 
