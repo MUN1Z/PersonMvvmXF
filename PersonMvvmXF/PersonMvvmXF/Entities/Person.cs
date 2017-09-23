@@ -7,8 +7,6 @@ namespace PersonMvvmXF.Entities
 {
     public class Person: BindableBase, IBaseEntity
     {
-
-
         public Person()
         {
             Id = Guid.NewGuid();

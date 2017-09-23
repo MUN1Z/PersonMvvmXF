@@ -3,10 +3,8 @@ using Prism.Navigation;
 
 namespace PersonMvvmXF.ViewModels
 {
-    public class BaseViewModel : BindableBase, INavigationAware
+    public class BaseViewModel : BindableBase
     {
-        private readonly INavigationService _navigationService;
-
         private string _title;
         public string Title
         {
@@ -14,31 +12,9 @@ namespace PersonMvvmXF.ViewModels
             set => SetProperty(ref _title, value);
         }
 
-        public BaseViewModel(string title, INavigationService navigationService)
+        public BaseViewModel(string title)
         {
             Title = title;
-            _navigationService = navigationService;
         }
-
-        public void OnNavigatedFrom(NavigationParameters parameters)
-        {
-
-        }
-
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            
-        }
-
-        public void OnNavigatingTo(NavigationParameters parameters)
-        {
-
-        }
-
-        public void NavigateTo(string page)
-        {
-            _navigationService.NavigateAsync(page);
-        }
-        
     }
 }

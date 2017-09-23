@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using PersonMvvmXF.Entities;
 
 namespace PersonMvvmXF.Data

@@ -17,8 +17,9 @@ namespace PersonMvvmXF
 
         protected override void RegisterTypes()
         {
-            Container.RegisterTypeForNavigation<NavigationPage>();
-            Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<NavigationPage>("NavigationPage");
+            Container.RegisterTypeForNavigation<MainPage>("MainPage");
+            Container.RegisterTypeForNavigation<PersonPage>("PersonPage");
         }
     }
 }

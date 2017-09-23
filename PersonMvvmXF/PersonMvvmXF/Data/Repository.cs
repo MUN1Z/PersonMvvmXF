@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using Microsoft.Practices.ObjectBuilder2;
 using PersonMvvmXF.Entities;
 using PersonMvvmXF.Ioc;
 using SQLite;
